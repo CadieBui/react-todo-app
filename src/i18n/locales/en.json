@@ -1,0 +1,71 @@
+{
+  "todo": {
+    "todo": "Task",
+    "title": "Title",
+    "content": "Content",
+    "dueDate": "Due Date",
+    "priority": "Priority",
+    "priorities": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "overdue": "Overdue",
+    "placeholder": {
+      "title": "Enter title"
+    },
+    "validation": {
+      "required": {
+        "title": "Title is required",
+        "content": "Content is required",
+        "dueDate": "Due date is required"
+      },
+      "dueDate": {
+        "past": "Due date cannot be in the past"
+      }
+    },
+    "actions": {
+      "add": "Add ",
+      "edit": "Edit ",
+      "delete": "Delete",
+      "view": "View",
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update",
+      "deleteConfirm": "Are you sure you want to delete this task?"
+    },
+    "success": {
+      "add": "Task added successfully",
+      "update": "Task updated successfully"
+    },
+    "notFound": "No tasks found",
+    "backToHome": "Back to Home"
+  },
+  "languages": {
+    "en": "English",
+    "zh-TW": "Chinese",
+    "vi": "Vietnamese"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "to": "to",
+    "of": "of",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "layout": {
+    "home": "Home",
+    "addTodo": "Add"
+  },
+  "search": {
+    "title": "Search...."
+  },
+  "searchSort": {
+    "title": "Sort by",
+    "options": {
+      "dueDate": "Due Date",
+      "priority": "Priority",
+      "title": "Title"
+    }
+  }
+}

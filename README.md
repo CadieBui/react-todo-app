@@ -1,46 +1,108 @@
-# Getting Started with Create React App
+# Todo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern Todo application built with React, TypeScript, and Vite.
 
-## Available Scripts
+## Project Structure
 
-In the project directory, you can run:
+```
+├── src/
+│   ├── components/   # Reusable UI Components
+│   ├── hooks/       # Custom React Hooks
+│   ├── pages/       # Page Components
+│   └── utils/       # Utility Functions & Helpers
+├── cypress/
+│   ├── e2e/        # End-to-End Tests
+│   └── support/    # Test Helpers & Commands
+└── public/         # Static Assets
+```
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Node.js (v18.17.1 or higher)
+- npm (v9.0.0 or higher)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Quick Start
 
-### `npm test`
+1. **Installation**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+# Clone repository
+git clone https://github.com/your-username/todo-app.git
 
-### `npm run build`
+# Install dependencies
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Development**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Start development server
+npm run dev
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Access the app at `http://localhost:5173`
 
-### `npm run eject`
+3. **Testing**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+# Open Cypress Test Runner
+npm run cypress:open
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Run Cypress tests headlessly
+npm run cypress:run
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4. **Production**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+# Build for production
+npm run build
 
-## Learn More
+# Preview production build
+npm run preview
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tech Stack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Framework:** React 18
+- **Language:** TypeScript
+- **Build Tool:** Vite
+- **Testing:** Cypress
+- **Linting:** ESLint
+- **Styling:** Tailwind CSS
+
+## ESLint Configuration
+
+For production applications, enable type-aware lint rules:
+
+1. Configure `parserOptions`:
+
+```js
+export default tseslint.config({
+  languageOptions: {
+    parserOptions: {
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+});
+```
+
+2. Update ESLint configuration:
+
+```js
+import react from "eslint-plugin-react";
+
+export default tseslint.config({
+  settings: {
+    react: { version: "18.3" },
+  },
+  plugins: {
+    react,
+  },
+  rules: {
+    ...react.configs.recommended.rules,
+    ...react.configs["jsx-runtime"].rules,
+  },
+});
+```

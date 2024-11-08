@@ -1,0 +1,71 @@
+{
+  "todo": {
+    "todo": "Công việc",
+    "title": "Tiêu đề",
+    "content": "Nội dung",
+    "dueDate": "Ngày hết hạn",
+    "priority": "Độ ưu tiên",
+    "priorities": {
+      "high": "Cao",
+      "medium": "Trung bình",
+      "low": "Thấp"
+    },
+    "overdue": "Quá hạn",
+    "placeholder": {
+      "title": "Nhập tiêu đề"
+    },
+    "validation": {
+      "required": {
+        "title": "Vui lòng nhập tiêu đề",
+        "content": "Vui lòng nhập nội dung",
+        "dueDate": "Vui lòng chọn ngày hết hạn"
+      },
+      "dueDate": {
+        "past": "Ngày hết hạn không thể trong quá khứ"
+      }
+    },
+    "actions": {
+      "add": "Thêm ",
+      "edit": "Sửa ",
+      "delete": "Xóa",
+      "view": "Xem",
+      "cancel": "Hủy",
+      "save": "Lưu",
+      "update": "Cập nhật",
+      "deleteConfirm": "Bạn có chắc chắn muốn xóa công việc này không?"
+    },
+    "success": {
+      "add": "Thêm công việc thành công",
+      "update": "Cập nhật công việc thành công"
+    },
+    "notFound": "Không tìm thấy công việc",
+    "backToHome": "Trở về trang chủ"
+  },
+  "languages": {
+    "en": "English",
+    "zh-TW": "Chinese",
+    "vi": "Vietnamese"
+  },
+  "pagination": {
+    "showing": "Hiển thị",
+    "to": "đến",
+    "of": "của",
+    "next": "Tiếp",
+    "previous": "Trước"
+  },
+  "layout": {
+    "home": "Trang chủ",
+    "addTodo": "Thêm"
+  },
+  "search": {
+    "title": "Tìm kiếm...."
+  },
+  "searchSort": {
+    "title": "Sắp xếp theo",
+    "options": {
+      "dueDate": "Ngày hết hạn",
+      "priority": "Độ ưu tiên",
+      "title": "Tiêu đề"
+    }
+  }
+}

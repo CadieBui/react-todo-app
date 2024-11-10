@@ -31,7 +31,10 @@ const TodoForm = ({ onSubmit, initialData }: TodoFormProps) => {
       dueDate: new Date(data.dueDate),
       priority: data.priority as PriorityType
     });
-    toast.success(initialData ? t('todo.success.update') : t('todo.success.add'));
+    toast.success(initialData ? t('todo.success.update') : t('todo.success.add'), {
+      autoClose: 1000,
+      toastId: 'success-submit-toast'
+    });
   };
 
   return (

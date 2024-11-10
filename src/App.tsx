@@ -37,7 +37,10 @@ function App() {
 
   const handleDeleteTodo = (id: string) => {
     setTodos(todos.filter((todo: TodoType) => todo.id !== id));
-    toast.success(t('todo.success.delete'));
+    toast.success(t('todo.success.delete'), {
+      toastId: 'success-delete-toast',
+      autoClose: 1000,
+    });
   };
 
   return (

@@ -32,6 +32,7 @@ const AddEditPage = ({ todos, onAdd, onEdit }: AddEditPageProps) => {
       <TodoForm
         onSubmit={handleSubmit}
         initialData={editingTodo}
+        todos={todos}
       />
     </div>
   );

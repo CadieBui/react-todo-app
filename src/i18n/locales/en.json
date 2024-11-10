@@ -39,6 +39,11 @@
       "update": "Task updated successfully",
       "delete": "Task deleted successfully"
     },
+    "error": {
+      "dueDateCannotBeInThePast": "Due date cannot be in the past",
+      "duplicateTitle": "Title already exists",
+      "submitForm": "Error submitting form"
+    },
     "notFound": "No tasks found",
     "backToHome": "Back to Home"
   },

@@ -7,6 +7,7 @@ import { getToday, formatDate } from '@/utils/todoUtils';
 interface TodoFormProps {
   onSubmit: (data: Omit<TodoType, 'id'>) => void;
   initialData?: Partial<TodoType> | null;
+  todos?: TodoType[] | null;
 }
 
 interface FormInputs {
@@ -15,7 +16,7 @@ interface FormInputs {
   priority: PriorityType;
 }
 
-const TodoForm = ({ onSubmit, initialData }: TodoFormProps) => {
+const TodoForm = ({ onSubmit, initialData, todos }: TodoFormProps) => {
   const { t } = useTranslation();
 
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -25,16 +26,45 @@ const TodoForm = ({ onSubmit, initialData }: TodoFormProps) => {
       priority: initialData?.priority ? initialData.priority : 'medium'
     }
   });
+
+  const isDuplicateTitle = (
+    title: string, 
+    currentId?: string
+  ): boolean => {
+    if (!todos) return false;
+
+    return todos.some(todo => 
+      todo.title.toLowerCase() === title.toLowerCase() && 
+      todo.id !== currentId
+    )
+  }
+
   const onSubmitForm = (data: FormInputs) => {
-    onSubmit({
-      title: data.title,
-      dueDate: new Date(data.dueDate),
-      priority: data.priority as PriorityType
-    });
-    toast.success(initialData ? t('todo.success.update') : t('todo.success.add'), {
-      autoClose: 1000,
-      toastId: 'success-submit-toast'
-    });
+    if (isDuplicateTitle(data.title, initialData?.id)) {
+      toast.error(t('todo.error.duplicateTitle'), {
+        toastId: 'error-duplicate-title-toast',
+        autoClose: 1000,
+      });
+    } else {
+      try {
+        onSubmit({
+          title: data.title,
+          dueDate: new Date(data.dueDate),
+          priority: data.priority as PriorityType
+        });
+        toast.success(initialData ? t('todo.success.update') : t('todo.success.add'), {
+          autoClose: 1000,
+          toastId: 'success-submit-toast'
+        });
+      } catch (error) {
+        toast.error(t('todo.error.submitForm'), {
+          autoClose: 1000,
+          toastId: 'error-submit-form-toast'
+        });
+        console.error('Error submitting form:', error);
+      }
+    }
+
   };
 
   return (
@@ -75,7 +105,7 @@ const TodoForm = ({ onSubmit, initialData }: TodoFormProps) => {
               const today = new Date();
               today.setHours(0, 0, 0, 0);
               
-              return selectedDate >= today || t('todo.dueDateCannotBeInThePast');
+              return selectedDate >= today || t('todo.error.dueDateCannotBeInThePast');
             }
           })}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 

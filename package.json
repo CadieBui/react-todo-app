@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
@@ -16,7 +17,9 @@
     "deploy": "gh-pages -d dist",
     "type-check": "tsc --noEmit",
     "clean": "rimraf dist",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "typecheck": "tsc --noEmit",
+    "typecheck:watch": "tsc --noEmit --watch"
   },
   "dependencies": {
     "framer-motion": "^11.11.11",

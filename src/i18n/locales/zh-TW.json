@@ -39,6 +39,11 @@
       "update": "更新成功",
       "delete": "刪除成功"
     },
+    "error": {
+      "dueDateCannotBeInThePast": "到期日不能是過去的日期",
+      "duplicateTitle": "標題已經存在",
+      "submitForm": "提交表單時發生錯誤"
+    },
     "backToHome": "返回首頁",
     "notFound": "找不到事項"
   },

@@ -37,7 +37,7 @@ git clone https://github.com/your-username/react-todo-app.git
 cd react-todo-app
 
 # Install dependencies
-npm install or npm ci
+npm install
 
 
 ```

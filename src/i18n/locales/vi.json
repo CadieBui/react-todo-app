@@ -39,6 +39,11 @@
       "update": "Cập nhật công việc thành công",
       "delete": "Xóa công việc thành công"
     },
+    "error": {
+      "dueDateCannotBeInThePast": "Ngày hết hạn không thể trong quá khứ",
+      "duplicateTitle": "Tiêu đề đã tồn tại",
+      "submitForm": "Lỗi khi gửi form"
+    },
     "notFound": "Không tìm thấy công việc",
     "backToHome": "Trở về trang chủ"
   },

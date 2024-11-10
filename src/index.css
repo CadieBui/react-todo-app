@@ -4,6 +4,24 @@
 
 /* Base styles */
 @layer base {
+  :root {
+    /* (16px * 100 / 375px * 1vw) */
+    font-size: 4.2666666667vw;
+  }
+  @media screen and (min-width: 768px) {
+    :root {
+      /* (16px * 100 / 768px * 1vw) */
+      font-size: 2.1333333333vw;
+    }
+  }
+
+  @media screen and (min-width: 1281px) {
+    :root {
+      /* (16px * 100 / 1280px * 1vw) */
+      font-size: 1.25vw;
+    }
+  }
+
   body {
     @apply bg-gray-50 text-gray-900 antialiased transition-colors duration-200;
   }

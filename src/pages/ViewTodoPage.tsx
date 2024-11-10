@@ -85,7 +85,7 @@ const ViewTodoPage = ({ todos, onDelete }: ViewTodoPageProps) => {
       <nav className="mb-6">
         <ol className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <li>
-            <Link to="/" className="hover:text-gray-700 dark:hover:text-gray-300">
+            <Link to="/" className="hover:text-gray-700 whitespace-nowrap dark:hover:text-gray-300">
               {t('layout.home')}
             </Link>
           </li>
@@ -94,15 +94,15 @@ const ViewTodoPage = ({ todos, onDelete }: ViewTodoPageProps) => {
               <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
             </svg>
           </li>
-          <li className="text-gray-700 dark:text-gray-300">{todo?.title}</li>
+          <li className="text-gray-700 truncate dark:text-gray-300">{todo?.title}</li>
         </ol>
       </nav>
 
       <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
         {/* Header */}
         <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-          <div className="flex items-center justify-between">
-            <h1 className="md:text-2xl text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
+          <div className="flex items-center justify-between gap-2">
+            <h1 className="md:text-2xl text-3xl lg:text-4xl font-bold truncate text-gray-900 dark:text-white">
               {todo.title}
             </h1>
             <div className={`flex items-center gap-x-2 px-3 py-1 rounded-md text-sm font-medium ${priorityColors[todo.priority]}`}>

@@ -22,7 +22,7 @@ const Layout = ({ darkMode, onToggleDarkMode }: LayoutProps) => {
               <div className="flex">
                 <Link 
                   to="/"
-                  className="flex items-center px-4 md:text-base text-sm text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400"
+                  className="flex items-center px-4 whitespace-nowrap md:text-base text-sm text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400"
                 >
                   {t('layout.home')}
                 </Link>

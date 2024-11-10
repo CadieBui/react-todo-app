@@ -15,6 +15,9 @@ Url: https://cadie-react-todo-app.netlify.app/
 │   ├── e2e/        # End-to-End Tests
 │   └── support/    # Test Helpers & Commands
 └── public/         # Static Assets
+├── dist/           # Production Build
+├── .env            # Environment Variables
+└── README.md       # This file
 ```
 
 ## Prerequisites
@@ -28,13 +31,25 @@ Url: https://cadie-react-todo-app.netlify.app/
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/todo-app.git
+git clone https://github.com/your-username/react-todo-app.git
+
+# Navigate to project directory
+cd react-todo-app
 
 # Install dependencies
-npm install
+npm install or npm ci
+
+
 ```
 
-2. **Development**
+2. **Environment Variables**
+
+```bash
+# Copy environment variables
+cp .env.example .env
+```
+
+3. **Development**
 
 ```bash
 # Start development server
@@ -43,7 +58,7 @@ npm run dev
 
 Access the app at `http://localhost:5173`
 
-3. **Testing**
+4. **Testing**
 
 ```bash
 # Open Cypress Test Runner
@@ -53,7 +68,7 @@ npm run cypress:open
 npm run cypress:run
 ```
 
-4. **Production**
+5. **Production**
 
 ```bash
 # Build for production
@@ -61,6 +76,16 @@ npm run build
 
 # Preview production build
 npm run preview
+```
+
+6. **Other**
+
+```bash
+# TypeScript check
+npm run typecheck
+
+# ESLint check
+npm run lint
 ```
 
 ## Tech Stack
@@ -71,39 +96,3 @@ npm run preview
 - **Testing:** Cypress
 - **Linting:** ESLint
 - **Styling:** Tailwind CSS
-
-## ESLint Configuration
-
-For production applications, enable type-aware lint rules:
-
-1. Configure `parserOptions`:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-2. Update ESLint configuration:
-
-```js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  settings: {
-    react: { version: '18.3' },
-  },
-  plugins: {
-    react,
-  },
-  rules: {
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```

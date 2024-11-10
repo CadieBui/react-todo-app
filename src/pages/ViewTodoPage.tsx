@@ -1,6 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { TodoType } from '@/types/todo.type';
+import { TodoType } from '@/types';
 import { useFormatDate } from '@/hooks/useTranslation';
 import { priorityColors } from '@/utils/todoUtils';
 import { useTranslation } from 'react-i18next';

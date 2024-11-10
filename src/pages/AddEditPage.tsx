@@ -1,5 +1,5 @@
 import TodoForm from '../components/TodoForm';
-import { TodoType } from '@/types/todo.type';
+import { TodoType } from '@/types';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -13,7 +13,7 @@ const AddEditPage = ({ todos, onAdd, onEdit }: AddEditPageProps) => {
   const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
-  const editingTodo = id ? todos.find(todo => todo.id === id) : null;
+  const editingTodo = id ? todos.find(todo => todo.id === id) : undefined;
 
   const handleSubmit = (data: Omit<TodoType, 'id'>) => {
     if (editingTodo) {

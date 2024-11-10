@@ -36,7 +36,8 @@
     },
     "success": {
       "add": "Task added successfully",
-      "update": "Task updated successfully"
+      "update": "Task updated successfully",
+      "delete": "Task deleted successfully"
     },
     "notFound": "No tasks found",
     "backToHome": "Back to Home"

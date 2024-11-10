@@ -1,8 +1,10 @@
+export type PriorityType = 'high' | 'medium' | 'low';
+
 export interface TodoType {
   id: string;
   title: string;
-  dueDate: Date;
-  priority: 'high' | 'medium' | 'low';
+  dueDate: Date | string;
+  priority: PriorityType;
 }
 
-export type SortOption = 'dueDate' | 'priority' | 'title';
+export type SortOptionType = 'dueDate' | 'priority' | 'title';

@@ -36,7 +36,8 @@
     },
     "success": {
       "add": "新增成功",
-      "update": "更新成功"
+      "update": "更新成功",
+      "delete": "刪除成功"
     },
     "backToHome": "返回首頁",
     "notFound": "找不到事項"

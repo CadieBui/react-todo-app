@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
-import { SortOption } from '@/types/todo.type';
+import { SortOptionType } from '@/types';
 
 interface SearchSortProps {
   searchTerm: string;
   onSearchChange: (value: string) => void;
-  sortBy: SortOption;
+  sortBy: SortOptionType;
   sortDirection: 'asc' | 'desc';
-  onSortChange: (value: SortOption) => void;
+  onSortChange: (value: SortOptionType) => void;
   onSortDirectionChange: () => void;
 }
 

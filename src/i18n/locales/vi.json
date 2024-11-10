@@ -36,7 +36,8 @@
     },
     "success": {
       "add": "Thêm công việc thành công",
-      "update": "Cập nhật công việc thành công"
+      "update": "Cập nhật công việc thành công",
+      "delete": "Xóa công việc thành công"
     },
     "notFound": "Không tìm thấy công việc",
     "backToHome": "Trở về trang chủ"

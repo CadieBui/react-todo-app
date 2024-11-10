@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { TodoType } from '@/types/todo.type';
+import { TodoType } from '@/types';
 import TodoItem from './TodoItem';
 
 interface TodoListProps {

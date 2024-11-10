@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { useLocalStorage } from '@hooks/useLocalStorage';
 import { useDarkMode } from '@hooks/useDarkMode';
-import { TodoType } from '@/types/todo.type';
+import { TodoType } from '@/types';
 import { config } from '@/config';
+import { useTranslation } from 'react-i18next';
 import Layout from '@/components/Layout';
 import HomePage from '@/pages/HomePage';
 import AddEditPage from '@pages/AddEditPage';
@@ -12,6 +13,9 @@ import ViewTodoPage from '@pages/ViewTodoPage';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const { t } = useTranslation();
+  const baseUrl = import.meta.env.BASE_URL || '/';
+
   const [todos, setTodos] = useLocalStorage<TodoType[]>(config.storage.key, []);
   const [darkMode, setDarkMode] = useDarkMode();
 
@@ -33,10 +37,11 @@ function App() {
 
   const handleDeleteTodo = (id: string) => {
     setTodos(todos.filter((todo: TodoType) => todo.id !== id));
+    toast.success(t('todo.success.delete'));
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={baseUrl}>
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar={true}/>
       <Routes>
         <Route
@@ -53,7 +58,6 @@ function App() {
             element={
               <HomePage
                 todos={todos}
-                onEdit={(todo: TodoType) => handleEditTodo(todo, todo.id)}
                 onDelete={handleDeleteTodo}
               />
             }

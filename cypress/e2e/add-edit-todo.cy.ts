@@ -9,7 +9,6 @@ describe('Add Todo', () => {
     cy.get('[data-testid="submit-button"]').click();
 
     cy.get('[data-testid="todo-title-error"]').should('be.visible');
-    cy.get('[data-testid="todo-due-date-error"]').should('be.visible');
   });
 
   it('should successfully create a todo', () => {

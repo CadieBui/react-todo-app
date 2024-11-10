@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { TodoType } from '@/types/todo.type';
+import { TodoType } from '@/types';
 import { useFormatDate } from '@/hooks/useTranslation';
 import { priorityColors } from '@/utils/todoUtils';
 
@@ -27,7 +27,7 @@ const TodoItem = ({ todo, onDelete }: TodoItemProps) => {
           <Link 
             to={`/todo/${todo.id}`}
             data-testid="todo-title"
-            className="text-lg font-medium text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400"
+            className="text-lg font-medium text-gray-900 line-clamp-2 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400"
           >
             {todo.title}
           </Link>

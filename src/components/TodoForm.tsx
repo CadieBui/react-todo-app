@@ -1,49 +1,38 @@
-import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
-import { TodoType } from '@/types/todo.type';
-import { getToday } from '@/utils/todoUtils';
-import { SortOption } from '@/types/todo.type';
+import { TodoType, PriorityType } from '@/types/index.ts';
+import { getToday, formatDate } from '@/utils/todoUtils';
 
 interface TodoFormProps {
   onSubmit: (data: Omit<TodoType, 'id'>) => void;
-  initialData?: TodoType;
+  initialData?: Partial<TodoType> | null;
 }
 
 interface FormInputs {
   title: string;
   dueDate: string;
-  priority: SortOption;
+  priority: PriorityType;
 }
 
 const TodoForm = ({ onSubmit, initialData }: TodoFormProps) => {
   const { t } = useTranslation();
 
-  const [dueDate, setDueDate] = useState<string | null>(null);
   const { register, handleSubmit, formState: { errors } } = useForm({
-    defaultValues: initialData || {
-      title: '',
-      dueDate: initialData?.dueDate 
-      ? new Date(initialData.dueDate).toISOString().split('T')[0]
-      : '',
-      priority: initialData?.priority || 'medium'
+    defaultValues: {
+      title: initialData?.title || '',
+      dueDate: initialData?.dueDate ? formatDate(initialData.dueDate) : getToday(),
+      priority: initialData?.priority ? initialData.priority : 'medium'
     }
   });
-
   const onSubmitForm = (data: FormInputs) => {
     onSubmit({
-      ...data,
+      title: data.title,
       dueDate: new Date(data.dueDate),
+      priority: data.priority as PriorityType
     });
     toast.success(initialData ? t('todo.success.update') : t('todo.success.add'));
   };
-
-  useEffect(() => {
-    if (initialData) {
-      setDueDate(new Date(initialData.dueDate).toISOString().split('T')[0]);
-    }
-  }, [initialData]);
 
   return (
     <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-4">
@@ -75,7 +64,6 @@ const TodoForm = ({ onSubmit, initialData }: TodoFormProps) => {
           id="dueDate"
           type="date"
           data-testid="todo-due-date"
-          value={dueDate || ''}
           min={getToday()}
           {...register('dueDate', { 
             required: t('todo.validation.required.dueDate'),
@@ -85,9 +73,6 @@ const TodoForm = ({ onSubmit, initialData }: TodoFormProps) => {
               today.setHours(0, 0, 0, 0);
               
               return selectedDate >= today || t('todo.dueDateCannotBeInThePast');
-            },
-            onChange: (e) => {
-              setDueDate(e.target.value);
             }
           })}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 

@@ -1,21 +1,20 @@
 import { useState } from 'react';
 import TodoList from '@components/TodoList';
 import SearchSort from '@/components/SearchSort';
-import { TodoType } from '@/types/todo.type';
+import { TodoType, SortOptionType } from '@/types';
 import Pagination from '@/components/Pagination';
 import { useTranslation } from 'react-i18next';
 const ITEMS_PER_PAGE = 5;
 
 interface HomePageProps {
   todos: TodoType[];
-  onEdit: (todo: TodoType) => void;
   onDelete: (id: string) => void;
 }
 
-const HomePage = ({ todos, onEdit, onDelete }: HomePageProps) => {
+const HomePage = ({ todos, onDelete }: HomePageProps) => {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
-  const [sortBy, setSortBy] = useState<'dueDate' | 'priority' | 'title'>('dueDate');
+  const [sortBy, setSortBy] = useState<SortOptionType>('dueDate');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -63,7 +62,7 @@ const HomePage = ({ todos, onEdit, onDelete }: HomePageProps) => {
   };
 
   const handleSortDirectionChange = () => {
-    setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');
+    setSortDirection((prev: 'asc' | 'desc') => prev === 'asc' ? 'desc' : 'asc');
     setCurrentPage(1);
   };
 
@@ -80,10 +79,8 @@ const HomePage = ({ todos, onEdit, onDelete }: HomePageProps) => {
       
       <TodoList
         todos={currentTodos}
-        onEdit={onEdit}
         onDelete={onDelete}
       />
-      
       {totalPages > 1 && (
         <Pagination
           currentPage={currentPage}

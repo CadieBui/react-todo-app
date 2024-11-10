@@ -1,6 +1,7 @@
 # Todo App
 
 A modern Todo application built with React, TypeScript, and Vite.
+Url: https://cadie-react-todo-app.netlify.app/
 
 ## Project Structure
 
@@ -81,28 +82,28 @@ For production applications, enable type-aware lint rules:
 export default tseslint.config({
   languageOptions: {
     parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
       tsconfigRootDir: import.meta.dirname,
     },
   },
-});
+})
 ```
 
 2. Update ESLint configuration:
 
 ```js
-import react from "eslint-plugin-react";
+import react from 'eslint-plugin-react'
 
 export default tseslint.config({
   settings: {
-    react: { version: "18.3" },
+    react: { version: '18.3' },
   },
   plugins: {
     react,
   },
   rules: {
     ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
+    ...react.configs['jsx-runtime'].rules,
   },
-});
+})
 ```

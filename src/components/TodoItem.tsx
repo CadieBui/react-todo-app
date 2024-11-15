@@ -25,7 +25,7 @@ const TodoItem = ({ todo, onDelete }: TodoItemProps) => {
         {/* Title và Priority */}
         <div className="flex items-center justify-between">
           <Link 
-            to={`/todo/${todo.id}`}
+            to={`/${todo.id}`}
             data-testid="todo-title"
             className="text-lg font-medium text-gray-900 line-clamp-2 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400"
           >
